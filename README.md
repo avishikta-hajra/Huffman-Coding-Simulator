@@ -61,3 +61,5 @@ Here is how the boot sequence works under the hood:
 * **Binary Compilation :** The browser asynchronously fetches the `huffman_coding.wasm` binary file over the network and compiles it into executable machine code using `WebAssembly.instantiateStreaming`.
 * **Environment Setup :** The Emscripten runtime allocates the WebAssembly memory heap and links necessary C++ standard library functions (like `malloc` and `free`).
 * **State Hydration :** Once compilation is complete, the Promise resolves, passing the fully instantiated module back to React. React updates its state (`setWasmModule`), unmounts the loading screen, and renders the interactive control panel.
+
+<img width="2393" height="1536" alt="Workflow of WASM" src="https://github.com/user-attachments/assets/7299bb2d-f13c-4e87-9e3b-e7ff32d09b9b" />
