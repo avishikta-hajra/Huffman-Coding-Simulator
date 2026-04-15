@@ -72,8 +72,7 @@ Because this project relies on a C++ WebAssembly backend, we will need to instal
 
 ### Prerequisites :
 1. **Node.js & npm:** Make sure to have [Node.js](https://nodejs.org/) installed (v16+ recommended).
-2. **Emscripten (emsdk):** The Emscripten SDK is to be installed to compile the C++ code into WebAssembly.
-[official Emscripten installation instructions](https://emscripten.org/docs/getting_started/downloads.html).
+2. **Emscripten (emsdk):** The Emscripten SDK is to be installed to compile the C++ code into WebAssembly. [emsdk GitHub repository](https://github.com/emscripten-core/emsdk).
 
 ### 1. Cloning the Repository
 ```bash
@@ -84,3 +83,27 @@ Navigating to `frontend_simulation` and installing the required React packages
 ```bash
 npm install
 ```
+
+### 3. Compiling the WebAssembly Backend
+Ensuring the Emscripten environment is **activated**. Navigating to where `emsdk` is installed and activating :
+```bash
+# On Mac/Linux
+source ./emsdk_env.sh
+
+# On Windows (Command Prompt)
+emsdk_env.bat
+```
+Then, navigating into `logic_cpp` folder to compile the C++ code into WASM. `build.sh` can be referred to or we can run :
+```bash
+emcc huffman_coding_algorithm.cpp wasm_bindings.cpp -o huffman_coding.js -lembind -s MODULARIZE=1 -s EXPORT_NAME="HuffmanCodingModule" -O3
+```
+
+### 3. Chaging the Directory/Path of Output Files
+The `huffman_coding.js` and `huffman_coding.wasm` files are sent from `logic_cpp` to `frontend_simulation/public` manually or by terminal commands.
+
+### 4. Running the Development Server
+Navigating to `frontend_simulation` and starting the simulator :
+```bash
+npm run dev
+```
+To access the simulator, the browser need to be opened and we navigate to the local URL provided by Vite
