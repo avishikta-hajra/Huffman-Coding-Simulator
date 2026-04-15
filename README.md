@@ -37,7 +37,7 @@ This project leverages a hybrid architecture : **C++ handles the algorithmic log
 4. **Previous State (Stepping Backward):**
    Because the C++ algorithm only runs *forward*, clicking the `<` (Previous) button does not interact with WebAssembly. Instead, React decrements a `currentStep` index and loads the previous tree state entirely from the cached `history` array.
 
-### A Detailed Example Walkthrough
+### A Detailed Example Walkthrough :
 Given the input:
 * **Characters:** `a, b, c, d, e, f, g`
 * **Frequencies:** `13, 2, 17, 5, 11, 3, 7`
@@ -53,7 +53,7 @@ Given the input:
 
 ---
 
-### WebAssembly Initialization & Boot Process
+### WebAssembly Initialization & Boot Process :
 
 Here is how the boot sequence works under the hood:
 * **Component Mount :** When the React application loads, the main `App` component mounts with a null WebAssembly module state, in a loading screen.
@@ -63,3 +63,24 @@ Here is how the boot sequence works under the hood:
 * **State Hydration :** Once compilation is complete, the Promise resolves, passing the fully instantiated module back to React. React updates its state (`setWasmModule`), unmounts the loading screen, and renders the interactive control panel.
 
 <img width="2393" height="1536" alt="Workflow of WASM" src="https://github.com/user-attachments/assets/7299bb2d-f13c-4e87-9e3b-e7ff32d09b9b" />
+
+---
+
+## Setup & Installation
+
+Because this project relies on a C++ WebAssembly backend, we will need to install the Emscripten compiler toolkit alongside standard Node.js tools.
+
+### Prerequisites :
+1. **Node.js & npm:** Make sure to have [Node.js](https://nodejs.org/) installed (v16+ recommended).
+2. **Emscripten (emsdk):** The Emscripten SDK is to be installed to compile the C++ code into WebAssembly.
+[official Emscripten installation instructions](https://emscripten.org/docs/getting_started/downloads.html).
+
+### 1. Cloning the Repository
+```bash
+git clone https://github.com/avishikta-hajra/Huffman-Coding-Simulator.git
+```
+### 2. Installing Frontend Dependencies
+Navigating to `frontend_simulation` and installing the required React packages
+```bash
+npm install
+```
