@@ -66,7 +66,7 @@ Here is how the boot sequence works under the hood:
 
 ---
 
-## Setup & Installation
+## 3. Setup & Installation
 
 Because this project relies on a C++ WebAssembly backend, we will need to install the Emscripten compiler toolkit alongside standard Node.js tools.
 
@@ -106,4 +106,4 @@ Navigating to `frontend_simulation` and starting the simulator :
 ```bash
 npm run dev
 ```
-To access the simulator, the browser need to be opened and we navigate to the local URL provided by Vite
+To access the simulator, the browser need to be opened and we navigate to the local URL provided by Vite.
